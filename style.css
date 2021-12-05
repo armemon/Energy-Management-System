@@ -1,0 +1,190 @@
+body {
+    /* background-color: turquoise; */
+    background-image: url(background1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: turquoise;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+    color: turquoise;
+}
+
+.logo {
+    width: 100px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: white !important;
+    background-color: turquoise;
+    margin: 0px 5px !important;
+    border-radius: 30px !important;
+    border: solid 2px black !important;
+    padding: 10px !important;
+}
+
+.navbar-collapse {
+    margin-top: 10px;
+}
+
+.dropdown-menu {
+    background-color: turquoise;
+}
+
+.dropdown-item {
+    color: white!important;
+    border: solid 2px turquoise !important;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.dropdown-item:hover,
+.activeh {
+    background-color: white;
+    color: turquoise !important;
+    border: solid 2px turquoise !important;
+}
+
+.boxes,
+.energy {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.box {
+    border: turquoise solid 2px;
+    border-radius: 30px;
+    box-shadow: grey 2px 1px 8px;
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: white;
+    color: turquoise !important;
+    margin: 20px;
+    flex: 1;
+    min-width: 400px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+/* .tank {
+    margin: 50px 0;
+    margin-left: 45% !important;
+    align-items: center;
+} */
+
+.fas {
+    font-size: 48px !important;
+}
+
+
+/* Energy */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+body {
+    font-family: Roboto, sans-serif;
+}
+
+#chart {
+    max-width: 650px;
+    margin: -20px auto;
+}
+
+.input,
+.result {
+    text-align: center;
+    flex: 1;
+    min-width: 200px !important;
+    margin: 10px;
+}
+
+.input-group-text,
+.submit {
+    padding: 15px;
+    background-color: turquoise;
+}
+
+.form-control {
+    border: turquoise solid 2px !important;
+}
+
+.results {
+    border: turquoise solid 1px;
+    border-radius: 30px;
+    box-shadow: grey;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    color: turquoise !important;
+    margin: 10px;
+    font-size: large;
+    font-weight: bolder;
+}
+
+
+/* Kitchen  */
+
+.centercont {
+    margin: 50px auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#firebutton {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
+
+.kitchenbtn {
+    background-color: white;
+    border-color: turquoise;
+    color: turquoise;
+    margin: 10px;
+}
+
+.btn-check:active,
+.btn-check:checked+.btn-primary,
+.btn-check:focus {
+    color: #fff;
+    background-color: turquoise !important;
+    border-color: turquoise !important;
+    box-shadow: none;
+    font-weight: 800;
+}
+
+#fire {
+    height: 350px;
+    position: relative;
+    /* border: 3px solid green; */
+    /* text-align: center; */
+}
+
+#center {
+    margin: 0;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px black;
+}
