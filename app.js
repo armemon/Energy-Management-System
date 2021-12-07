@@ -10,22 +10,115 @@
 // getFirebaseDataon()
 
 //Kitchen
-function KitchenFireButton() {
-    fire = document.getElementById("fire");
-    nofire = document.getElementById("nofire");
-    firebutton = document.getElementById("firebutton");
-    if (fire.style.display == "none") {
-        document.body.style.backgroundImage = "url(fire.jpg)";
-        nofire.style.display = "none";
-        fire.style.display = "block";
-        firebutton.innerText = "Aag bhuja do"
-    } else {
-        document.body.style.backgroundImage = "url(background1.jpg)";
-        fire.style.display = "none";
-        nofire.style.display = "block";
-        firebutton.innerText = "Aag laga do"
-    }
+    function getKitchenData() {
+        firebase.database().ref('Fire_Data/1-set').on('value', function(data) { //for every object each time it is run
+            fire_data = data.val()['Fire Reading']
+            console.log(fire_data)
+            var fire = document.getElementById("fire");
+            var nofire = document.getElementById("nofire");
+            // var firebutton = document.getElementById("firebutton");
+            if (fire_data == "True") {
+                document.body.style.backgroundImage = "url(fire.jpg)";
+                nofire.style.display = "none";
+                fire.style.display = "block";
+                // firebutton.innerText = "Aag bhuja do"
+            }
+            if (fire_data == "False") {
+                document.body.style.backgroundImage = "url(background1.jpg)";
+                fire.style.display = "none";
+                nofire.style.display = "block";
+                // firebutton.innerText = "AAG laga Do"
+            }
+        })
 }
+getKitchenData()
+function getKitchenRelayDataOnce() {
+    firebase.database().ref('Relay').once('value', function (data) {
+        RelayData = data.val()
+        console.log(RelayData)
+        if (RelayData['bulb1'] == "on") {
+            document.getElementById("bulb1on").setAttribute("checked", "checked");
+        }
+    })
+}
+function getR1RelayDataOnce() {
+        firebase.database().ref('Relay').once('value', function(data) { 
+            RelayData = data.val()
+            console.log(RelayData)
+            if (RelayData['bulb2'] == "on") {
+                document.getElementById("bulb2on").setAttribute("checked", "");
+            }
+            if (RelayData['fan1'] == "on") {
+                document.getElementById("fan1on").setAttribute("checked", "");
+            }
+        })
+}
+function getR2RelayDataOnce() {
+    firebase.database().ref('Relay').once('value', function(data) { 
+        RelayData = data.val()
+        console.log(RelayData)
+        if (RelayData['bulb3'] == "on") {
+            document.getElementById("bulb3on").setAttribute("checked", "");
+        }
+    })
+}
+
+// var RelayData ={
+//     bulb1: "off",
+//     bulb2: "off",
+//     bulb3: "off",
+//     fan1: "off",
+// }
+function bulb1on() {
+    RelayData['bulb1'] = "on"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function bulb1off() {
+    RelayData['bulb1'] = "off"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function bulb2on() {
+    RelayData['bulb2'] = "on"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function bulb2off() {
+    RelayData['bulb2'] = "off"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function bulb3on() {
+    RelayData['bulb3'] = "on"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function bulb3off() {
+    RelayData['bulb3'] = "off"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function fan1on() {
+    RelayData['fan1'] = "on"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function fan1off() {
+    RelayData['fan1'] = "off"
+    firebase.database().ref('Relay').set(RelayData)
+    }
+// function bulb1on() {
+//     firebase.database().ref('Relay/bulb1').set({bulb1:"on"})
+// }
+// function bulb1off() {
+//     firebase.database().ref('Relay/bulb1').set({bulb1:"off"})
+// }
+// function bulb2on() {
+//     firebase.database().ref('Relay/bulb2').set({bulb2:"on"})
+// }
+// function bulb2off() {
+//     firebase.database().ref('Relay/bulb2').set({bulb2:"off"})
+// }
+// function bulb3on() {
+//     firebase.database().ref('Relay/bulb3').set({bulb3:"on"})
+// }
+// function bulb3off() {
+//     firebase.database().ref('Relay/bulb3').set({bulb3:"off"})
+//     }
 
 //Energy
 var options = {

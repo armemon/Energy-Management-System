@@ -3,7 +3,7 @@ body {
     background-image: url(background1.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: 16in;
     color: turquoise;
     /* text-shadow: 0.5px 1px 1px black; */
 }
@@ -36,8 +36,11 @@ a:active {
     padding: 10px !important;
 }
 
-.navbar-collapse {
+.navbar-collapse{
     margin-top: 10px;
+}
+.navbar-toggler {
+    background-color: white;
 }
 
 .dropdown-menu {
@@ -155,22 +158,23 @@ body {
 /* Kitchen  */
 
 .centercont {
-    margin: 0.7in auto;
+    margin: 1.1in auto;
     text-align: center;
     justify-content: center;
     align-items: center;
 }
 
-#firebutton {
+/* #firebutton {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     margin: 50px auto;
-}
+} */
 
-.kitchenbtn {
-    background-color: white;
+.kitchenbtn,
+.kitchenbtn:hover {
+    background-color: white !important;
     border-color: turquoise;
     color: turquoise;
     margin: 10px;
