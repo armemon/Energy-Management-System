@@ -5,6 +5,7 @@ body {
     background-position: center;
     background-size: cover;
     color: turquoise;
+    /* text-shadow: 0.5px 1px 1px black; */
 }
 
 .navbar {
@@ -55,6 +56,7 @@ a:active {
     background-color: white;
     color: turquoise !important;
     border: solid 2px turquoise !important;
+    text-shadow: none
 }
 
 .boxes,
@@ -81,11 +83,11 @@ a:active {
 }
 
 
-/* .tank {
-    margin: 50px 0;
-    margin-left: 45% !important;
-    align-items: center;
-} */
+.tank {
+    margin: 0.49in 0 !important;
+    /* margin-left: 45% !important; */
+    text-align: center;
+}
 
 .fas {
     font-size: 48px !important;
@@ -137,10 +139,23 @@ body {
 }
 
 
+/* @media screen and (max-width: 650px) {
+    .centercont {
+        margin: 75px auto !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .centercont {
+        margin: 200px auto !important;
+    }
+} */
+
+
 /* Kitchen  */
 
 .centercont {
-    margin: 50px auto;
+    margin: 0.7in auto;
     text-align: center;
     justify-content: center;
     align-items: center;

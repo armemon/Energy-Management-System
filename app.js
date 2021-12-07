@@ -1,93 +1,84 @@
-FusionCharts.ready(function () {
-    
-    var chartObj = new FusionCharts({
-        type: 'cylinder',
-        dataFormat: 'json',
-        renderAt: 'chart-container',
-        width: '200',
-        height: '350',
-        dataSource: {
-            "chart": {
-                "bgColor": "#30D5C8",
-                "bgAlpha": "0",
-                "cylFillColor": "#086AFC",
-                "theme": "fusion",
-                "caption": "Water Level in TANK",
-                "subcaption": "",
-                "lowerLimit": "0",
-                "upperLimit": "120",
-                "lowerLimitDisplay": "Empty",
-                "upperLimitDisplay": "Full",
-                "numberSuffix": " ltrs",
-                "showValue": "1",
-                "chartBottomMargin": "45",
-                "showValue": "0"
-            },
-            "value": "110",
-            "annotations": {
-                "origw": "400",
-                "origh": "190",
-                "autoscale": "1",
-                "groups": [{
-                    "id": "range",
-                    "items": [{
-                        "id": "rangeBg",
-                        "type": "rectangle",
-                        "x": "$canvasCenterX-45",
-                        "y": "$chartEndY-30",
-                        "tox": "$canvasCenterX +45",
-                        "toy": "$chartEndY-75",
-                        "fillcolor": "#FFFFFF"
-                    }, {
-                        "id": "rangeText",
-                        "type": "Text",
-                        "fontSize": "11",
-                        "fillcolor": "#000000",
-                        "text": "80 ltrs",
-                        "x": "$chartCenterX-45",
-                        "y": "$chartEndY-50"
-                    }]
-                }]
-            }
+//water
 
-        },
-        "events": {
-            "rendered": function (evtObj, argObj) {
-                var fuelVolume = 110;
-                // evtObj.sender.chartInterval = setInterval(function() {
-                //     (fuelVolume < 10) ? (fuelVolume = 80) : "";
-                //     var consVolume = fuelVolume - (Math.floor(Math.random() * 3));
-                //     evtObj.sender.feedData && evtObj.sender.feedData("&value=" + consVolume);
-                //     fuelVolume = consVolume;
-                // }, 1000);
-            },
-            //Using real time update event to update the annotation
-            //showing available volume of Diesel
-            "realTimeUpdateComplete": function (evt, arg) {
-                var annotations = evt.sender.annotations,
-                    dataVal = evt.sender.getData(),
-                    colorVal = (dataVal >= 70) ? "#6caa03" : ((dataVal <= 35) ? "#e44b02" : "#f8bd1b");
-                //Updating value
-                annotations && annotations.update('rangeText', {
-                    "text": dataVal + " ltrs"
-                });
-                //Changing background color as per value
-                annotations && annotations.update('rangeBg', {
-                    "fillcolor": colorVal
-                });
 
-            },
-            "disposed": function (evt, arg) {
-                clearInterval(evt.sender.chartInterval);
+// function getFirebaseDataon() {
+//     firebase.database().ref('Tank_Data/1-set').once('value', function(data) { //for every object each time it is run
+//         tank_level = data.val()
+//         console.log(tank_level)
+//     })
+// }
+// getFirebaseDataon()
+
+//Kitchen
+function KitchenFireButton() {
+    fire = document.getElementById("fire");
+    nofire = document.getElementById("nofire");
+    firebutton = document.getElementById("firebutton");
+    if (fire.style.display == "none") {
+        document.body.style.backgroundImage = "url(fire.jpg)";
+        nofire.style.display = "none";
+        fire.style.display = "block";
+        firebutton.innerText = "Aag bhuja do"
+    } else {
+        document.body.style.backgroundImage = "url(background1.jpg)";
+        fire.style.display = "none";
+        nofire.style.display = "block";
+        firebutton.innerText = "Aag laga do"
+    }
+}
+
+//Energy
+var options = {
+    series: [67],
+    chart: {
+        height: 350,
+        type: 'radialBar',
+        offsetY: -10
+    },
+    plotOptions: {
+        radialBar: {
+            startAngle: -135,
+            endAngle: 135,
+            dataLabels: {
+                name: {
+                    fontSize: '16px',
+                    color: undefined,
+                    offsetY: 120
+                },
+                value: {
+                    offsetY: 76,
+                    fontSize: '22px',
+                    color: undefined,
+                    formatter: function(val) {
+                        return val + " Watt";
+                    }
+                }
             }
         }
-    }
-    );
-    // chartObj.setDataXML("<chart bgAlpha='0,0'><set value='213' /></chart>");
-    chartObj.setTransparent(true);
-    chartObj.render();
-});
+    },
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shade: 'dark',
+            shadeIntensity: 0.15,
+            inverseColors: false,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 50, 65, 91]
+        },
+    },
+    stroke: {
+        dashArray: 4
+    },
+    labels: ['Energy'],
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
 
 
 
-  
+current = document.getElementById("current").value
+voltage = document.getElementById("voltage1").value
+phase = document.getElementById("phase")
+console.log(current)
