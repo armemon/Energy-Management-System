@@ -1,5 +1,8 @@
-//water
 
+//   $(window).on('load', function () {
+//     $('#loading').hide();
+//   })
+//water
 
 // function getFirebaseDataon() {
 //     firebase.database().ref('Tank_Data/1-set').once('value', function(data) { //for every object each time it is run
@@ -8,9 +11,41 @@
 //     })
 // }
 // getFirebaseDataon()
+function getMotorDataOn() {
+    firebase.database().ref('Relay').on('value', function(data) { 
+        RelayData = data.val()
+        console.log(RelayData)
+        if (RelayData['motor'] == "on") {
+            document.getElementById("motorStatus").innerHTML= "ON";
+        }
+        if (RelayData['motor'] == "off") {
+            document.getElementById("motorStatus").innerHTML ="OFF";
+        }
+    })
+}
+
+//Temperature
+function getTemperatureDataOn() {
+    firebase.database().ref('DHT_Data/1-set').on('value', function (data) {
+        var TempData = data.val()['Temperature']
+        var HumidityData = data.val()['Humidity']
+        console.log(TempData)
+        console.log(HumidityData)
+        document.getElementById("temperature").innerHTML = TempData;
+        document.getElementById("humidity").innerHTML = HumidityData;
+    })
+    firebase.database().ref('Fire_Data/1-set').on('value', function (data) {
+        var FireData = data.val()['Fire Reading']
+        var SmokeData = data.val()['Smoke Reading']
+        console.log(FireData)
+        console.log(SmokeData)
+        document.getElementById("fire1").innerHTML = FireData;
+        document.getElementById("smoke").innerHTML = SmokeData;
+    })
+}
 
 //Kitchen
-    function getKitchenData() {
+    function changeBG() {
         firebase.database().ref('Fire_Data/1-set').on('value', function(data) { //for every object each time it is run
             fire_data = data.val()['Fire Reading']
             console.log(fire_data)
@@ -19,19 +54,28 @@
             // var firebutton = document.getElementById("firebutton");
             if (fire_data == "True") {
                 document.body.style.backgroundImage = "url(fire.jpg)";
-                nofire.style.display = "none";
-                fire.style.display = "block";
-                // firebutton.innerText = "Aag bhuja do"
             }
             if (fire_data == "False") {
                 document.body.style.backgroundImage = "url(background1.jpg)";
-                fire.style.display = "none";
-                nofire.style.display = "block";
-                // firebutton.innerText = "AAG laga Do"
             }
         })
 }
-getKitchenData()
+changeBG()
+function getKitchenData() {
+    firebase.database().ref('Fire_Data/1-set').on('value', function(data) { //for every object each time it is run
+        fire_data = data.val()['Fire Reading']
+        var fire = document.getElementById("fire");
+        var nofire = document.getElementById("nofire");
+        if (fire_data == "True") {
+            nofire.style.display = "none";
+            fire.style.display = "block";
+        }
+        if (fire_data == "False") {
+            fire.style.display = "none";
+            nofire.style.display = "block";
+        }
+    })
+}
 function getKitchenRelayDataOnce() {
     firebase.database().ref('Relay').once('value', function (data) {
         RelayData = data.val()
@@ -121,6 +165,7 @@ function fan1off() {
 //     }
 
 //Energy
+function energyChart(){
 var options = {
     series: [67],
     chart: {
@@ -168,10 +213,11 @@ var options = {
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+}
 
 
 
-current = document.getElementById("current").value
-voltage = document.getElementById("voltage1").value
-phase = document.getElementById("phase")
-console.log(current)
+// current = document.getElementById("current").value
+// voltage = document.getElementById("voltage1").value
+// phase = document.getElementById("phase")
+// console.log(current)

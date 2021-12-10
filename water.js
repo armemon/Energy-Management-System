@@ -32,7 +32,7 @@ FusionCharts.ready(function() {
                     "chartBottomMargin": "45",
                     "showValue": "0"
                 },
-                "value": "75",
+                "value": "",
                 "annotations": {
                     "origw": "400",
                     "origh": "190",
@@ -53,7 +53,7 @@ FusionCharts.ready(function() {
                                 "type": "Text",
                                 "fontSize": "11",
                                 "fillcolor": "#000000",
-                                "text": "80 ltrs",
+                                "text": "Wait",
                                 "x": "$chartCenterX-45",
                                 "y": "$chartEndY-50"
                             }

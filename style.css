@@ -1,8 +1,26 @@
+#loading {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+  }
+  
+  #loading-image {
+    z-index: 100;
+  }
+  
 body {
     /* background-color: turquoise; */
     background-image: url(background1.jpg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     background-size: 16in;
     color: turquoise;
     /* text-shadow: 0.5px 1px 1px black; */
@@ -113,7 +131,8 @@ body {
 .result {
     text-align: center;
     flex: 1;
-    min-width: 200px !important;
+    /* min-width: 200px !important; */
+    max-width: 500px;
     margin: 10px;
 }
 
@@ -158,7 +177,7 @@ body {
 /* Kitchen  */
 
 .centercont {
-    margin: 1.1in auto;
+    margin: 1in auto;
     text-align: center;
     justify-content: center;
     align-items: center;
