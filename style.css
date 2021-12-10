@@ -1,4 +1,4 @@
-#loading {
+/* #loading1 {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@
   
   #loading-image {
     z-index: 100;
-  }
+  } */
   
 body {
     /* background-color: turquoise; */
@@ -225,4 +225,7 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     text-shadow: 2px black;
+}
+.black{
+    color: black;
 }

@@ -1,7 +1,3 @@
-
-//   $(window).on('load', function () {
-//     $('#loading').hide();
-//   })
 //water
 
 // function getFirebaseDataon() {
@@ -11,6 +7,7 @@
 //     })
 // }
 // getFirebaseDataon()
+// console.log(document.getElementsByTagName("body").display)
 function getMotorDataOn() {
     firebase.database().ref('Relay').on('value', function(data) { 
         RelayData = data.val()
@@ -95,6 +92,7 @@ function getR1RelayDataOnce() {
             if (RelayData['fan1'] == "on") {
                 document.getElementById("fan1on").setAttribute("checked", "");
             }
+            
         })
 }
 function getR2RelayDataOnce() {
