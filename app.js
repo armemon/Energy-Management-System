@@ -8,15 +8,18 @@
 // }
 // getFirebaseDataon()
 // console.log(document.getElementsByTagName("body").display)
-function getMotorDataOn() {
-    firebase.database().ref('Relay').on('value', function(data) { 
+async function getMotorDataOn() {
+    firebase.database().ref('Relay').once('value', function (data) {
         RelayData = data.val()
-        console.log(RelayData)
-        if (RelayData['motor'] == "on") {
-            document.getElementById("motorStatus").innerHTML= "ON";
+    })
+    firebase.database().ref('Relay/motor').on('value', function(data) { 
+        RelayData1 = data.val()
+         if (RelayData1 == "on") {
+            console.log(RelayData1)
+            document.getElementById("motoron").setAttribute("checked","")
         }
-        if (RelayData['motor'] == "off") {
-            document.getElementById("motorStatus").innerHTML ="OFF";
+        if (RelayData1 == "off") {
+            document.getElementById("motoroff").setAttribute("checked","")
         }
     })
 }
@@ -73,6 +76,7 @@ function getKitchenData() {
         }
     })
 }
+var RelayData
 function getKitchenRelayDataOnce() {
     firebase.database().ref('Relay').once('value', function (data) {
         RelayData = data.val()
@@ -111,6 +115,14 @@ function getR2RelayDataOnce() {
 //     bulb3: "off",
 //     fan1: "off",
 // }
+function motoron() {
+    RelayData['motor'] = "on"
+    firebase.database().ref('Relay').set(RelayData)
+}
+function motoroff() {
+    RelayData['motor'] = "off"
+    firebase.database().ref('Relay').set(RelayData)
+}
 function bulb1on() {
     RelayData['bulb1'] = "on"
     firebase.database().ref('Relay').set(RelayData)

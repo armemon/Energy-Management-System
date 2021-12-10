@@ -77,18 +77,16 @@
         </div>
     </nav>
 
-
-
-    <h1>Hello, Water Tank</h1>
     <div class="tank">
         <div>
             <div id="chart-container">FusionCharts XT will load here!
             </div>
-
         </div>
-        <h1>Motor Status:
-            <span id="motorStatus">Wait</span>
-        </h1>
+        <p><label for="motor"><h3>Motor</h3></label>
+            <input type="radio" class="btn-check " onclick="motoron()" value="on" name="motor" id="motoron" >
+            <label class="kitchenbtn btn btn-primary" for="motoron">On</label>
+            <input type="radio" value="off" class="btn-check "  onclick="motoroff()"name="motor" id="motoroff" checked>
+            <label class="kitchenbtn btn btn-primary" for="motoroff">Off</label></p>
     </div>
 
 
