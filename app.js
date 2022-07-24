@@ -43,6 +43,36 @@ function getTemperatureDataOn() {
         document.getElementById("smoke").innerHTML = SmokeData;
     })
 }
+function getTemperatureDataOn() {
+    firebase.database().ref('Fault').on('value', function (data) {
+        var FaultType = data.val()['FaultType']
+        var FaultCurve = data.val()['FaultCurve']
+        var PMS = data.val()['PMS']
+        var FaultCurrent = data.val()['FaultCurrent']
+        var Parameters = data.val()['Parameters']
+        var CurrentSetting = data.val()['CurrentSetting']
+        var TMS = data.val()['TMS']
+        document.getElementById("fault").innerHTML = FaultType;
+        document.getElementById("fcurve").innerHTML = FaultCurve;
+        document.getElementById("pms").innerHTML = pms;
+        document.getElementById("fcurrent").innerHTML = FaultCurrent;
+        document.getElementById("fcurrentSetting").innerHTML = CurrentSetting;
+        document.getElementById("Parameters").innerHTML = Parameters;
+        document.getElementById("tms").innerHTML = TMS;
+    })
+}
+function getTemperatureDataOn() {
+    firebase.database().ref('Power').on('value', function (data) {
+        var Power = data.val()['Power']
+        var Voltage = data.val()['Voltage']
+        var Power = data.val()['Current']
+        var Voltage = data.val()['Units']
+        document.getElementById("power").innerHTML = Power;
+        document.getElementById("voltage").innerHTML = Voltage;
+        document.getElementById("current").innerHTML = Currents;
+        document.getElementById("units").innerHTML = Units;
+    })
+}
 
 //Kitchen
     function changeBG() {
@@ -228,6 +258,6 @@ chart.render();
 
 
 // current = document.getElementById("current").value
-// voltage = document.getElementById("voltage1").value
+// voltage = document.getElementById("voltage").value
 // phase = document.getElementById("phase")
 // console.log(current)
