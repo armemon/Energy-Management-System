@@ -43,8 +43,9 @@ function getTemperatureDataOn() {
         document.getElementById("smoke").innerHTML = SmokeData;
     })
 }
-function getTemperatureDataOn() {
+function getFaultDataOn() {
     firebase.database().ref('Fault').on('value', function (data) {
+        var Health = data.val()['Health']
         var FaultType = data.val()['FaultType']
         var FaultCurve = data.val()['FaultCurve']
         var PMS = data.val()['PMS']
@@ -52,24 +53,26 @@ function getTemperatureDataOn() {
         var Parameters = data.val()['Parameters']
         var CurrentSetting = data.val()['CurrentSetting']
         var TMS = data.val()['TMS']
+        document.getElementById("healthy").innerHTML = Health;
+        document.getElementById("health1").style.backgroundColor = (Health == "Healthy" ? "#a6f1a6" : "#ff3333");
         document.getElementById("fault").innerHTML = FaultType;
         document.getElementById("fcurve").innerHTML = FaultCurve;
-        document.getElementById("pms").innerHTML = pms;
+        document.getElementById("pms").innerHTML = PMS;
         document.getElementById("fcurrent").innerHTML = FaultCurrent;
         document.getElementById("fcurrentSetting").innerHTML = CurrentSetting;
-        document.getElementById("Parameters").innerHTML = Parameters;
+        document.getElementById("parameters").innerHTML = Parameters;
         document.getElementById("tms").innerHTML = TMS;
     })
 }
-function getTemperatureDataOn() {
+function getPowerDataOn() {
     firebase.database().ref('Power').on('value', function (data) {
         var Power = data.val()['Power']
         var Voltage = data.val()['Voltage']
-        var Power = data.val()['Current']
-        var Voltage = data.val()['Units']
+        var Current = data.val()['Current']
+        var Units = data.val()['Units']
         document.getElementById("power").innerHTML = Power;
         document.getElementById("voltage").innerHTML = Voltage;
-        document.getElementById("current").innerHTML = Currents;
+        document.getElementById("current").innerHTML = Current;
         document.getElementById("units").innerHTML = Units;
     })
 }

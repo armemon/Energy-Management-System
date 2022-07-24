@@ -157,10 +157,15 @@ body {
     justify-content: center;
     padding: 10px;
     background-color: white;
-    color: turquoise !important;
+    color: turquoise;
     margin: 10px;
     font-size: large;
     font-weight: bolder;
+}
+#health1{
+    /* text-shadow: #fff 1px 1px 5px 5px; */
+    color: #fff;
+    background-color: #a6f1a6;
 }
 
 
