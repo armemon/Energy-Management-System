@@ -61,14 +61,12 @@
                         <a class="nav-link" href="kitchen.html">Fire Alarm System</a>
                     </li>
                     
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Rooms
-                    </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="room1.html">Room 1</a></li>
-                            <li><a class="dropdown-item activeh" href="room2.html">Room 2</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="room1.html">Room</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link activeh" href="room2.html">Lux Intensity</a>
+                    </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
@@ -80,14 +78,31 @@
 
 
 
-    <h1>Room 2!</h1>
-    <div class="centercont">
-        <p><label for="bulb3"><h3>Bulb</h3></label>
-            <input type="radio" class="btn-check " onclick="bulb3on()" value="on" name="bulb3" id="bulb3on">
-            <label class="kitchenbtn btn btn-primary" for="bulb3on">On</label>
-            <input type="radio" value="off" class="btn-check " onclick="bulb3off()"name="bulb3" id="bulb3off" checked>
-            <label class="kitchenbtn btn btn-primary" for="bulb3off">Off</label></p>
+    <h1>LUX Intensity</h1>
+    <div class="energy">
+        <div class="result">
+        <div class="results green">
+            <h5>Total Illumination:</h5>
+            <h6 id="total">Wait..</h6>
+        </div>
+        <div class="results">
+            <h5>Infrared Radiation:</h5>
+            <h6 id="infrared">Wait..</h6>
+        </div>
+        <div class="results">
+            <h5>Visible Radiation:</h5>
+            <h6 id="visible">Wait..</h6>
+        </div>
+        <div class="results">
+            <h5>Full:</h5>
+            <h6 id="full">Wait..</h6>
+        </div>
     </div>
+    </div>
+</div>
+
+
+
     <script> getR2RelayDataOnce()</script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

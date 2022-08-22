@@ -133,12 +133,15 @@ function getR1RelayDataOnce() {
         })
 }
 function getR2RelayDataOnce() {
-    firebase.database().ref('Relay').once('value', function(data) { 
-        RelayData = data.val()
-        console.log(RelayData)
-        if (RelayData['bulb3'] == "on") {
-            document.getElementById("bulb3on").setAttribute("checked", "");
-        }
+    firebase.database().ref('Illumination').on('value', function (data) {
+        var Total = data.val()['Total']
+        var Infrared = data.val()['Infrared']
+        var Visible = data.val()['Visible']
+        var Full = data.val()['Full']
+        document.getElementById("total").innerHTML = Total;
+        document.getElementById("infrared").innerHTML = Infrared;
+        document.getElementById("visible").innerHTML = Visible;
+        document.getElementById("full").innerHTML = Full;
     })
 }
 
